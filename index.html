@@ -1,63 +1,1278 @@
-<!doctype html>
-<html lang="pt-AO">
+<!DOCTYPE html>
+<html lang="pt">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#071b38">
-  <meta name="description" content="Zuarte — papelaria, impressão, serviços digitais, fotografia rápida, cybercafé e jogos PlayStation.">
-  <title>Zuarte | Papelaria & Centro Digital</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Zuarte | Papelaria, Serviços Digitais e Gaming</title>
+  <meta name="description" content="Zuarte: material escolar, impressão, fotografias, serviços digitais, PlayStation, cybercafé e muito mais. Contacte-nos pelo WhatsApp.">
+  <meta name="theme-color" content="#102a43">
+
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://images.unsplash.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy: #102a43;
+      --blue: #1769aa;
+      --blue-light: #eaf4ff;
+      --gold: #f4b942;
+      --green: #16865b;
+      --white: #ffffff;
+      --text: #263746;
+      --muted: #687987;
+      --background: #f6f8fb;
+      --border: #e4eaf0;
+      --radius: 18px;
+      --shadow: 0 12px 35px rgba(16, 42, 67, .08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      font-family: "DM Sans", sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, textarea, select {
+      font: inherit;
+    }
+
+    button, a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .container {
+      width: min(1160px, 92%);
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 82px 0;
+    }
+
+    .section-heading {
+      max-width: 680px;
+      margin: 0 auto 38px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: var(--blue);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      line-height: 1.2;
+    }
+
+    h2 {
+      color: var(--navy);
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
+      margin-bottom: 14px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 9px;
+      min-height: 48px;
+      padding: 12px 21px;
+      border: 0;
+      border-radius: 10px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform .2s, background .2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    .btn-whatsapp {
+      background: #25d366;
+      color: #073b25;
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,.5);
+      color: var(--white);
+    }
+
+    /* Cabeçalho */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,.96);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      border-radius: 12px;
+    }
+
+    .brand-name {
+      font-family: "Plus Jakarta Sans", sans-serif;
+      color: var(--navy);
+      font-size: 1.25rem;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .brand-tagline {
+      display: block;
+      color: var(--muted);
+      font-size: .72rem;
+      margin-top: 3px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 23px;
+      font-size: .9rem;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: var(--blue);
+    }
+
+    .nav-cta {
+      background: var(--navy);
+      color: var(--white) !important;
+      padding: 10px 15px;
+      border-radius: 9px;
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      background: var(--blue-light);
+      border: 0;
+      border-radius: 10px;
+      color: var(--navy);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      color: var(--white);
+      background:
+        linear-gradient(105deg, rgba(10,31,52,.96), rgba(16,58,91,.86)),
+        url("https://images.unsplash.com/photo-1453738773917-9c3eff1db985?auto=format&fit=crop&w=1800&q=85")
+        center/cover;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      align-items: center;
+      gap: 50px;
+      padding-top: 88px;
+      padding-bottom: 88px;
+    }
+
+    .hero .eyebrow {
+      color: var(--gold);
+    }
+
+    .hero h1 {
+      max-width: 700px;
+      font-size: clamp(2.5rem, 5.5vw, 4.6rem);
+      letter-spacing: -2px;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 span {
+      color: var(--gold);
+    }
+
+    .hero-copy {
+      max-width: 570px;
+      color: #e0eaf3;
+      font-size: 1.08rem;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero-image-wrap {
+      position: relative;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 410px;
+      object-fit: cover;
+      border-radius: 24px;
+      border: 5px solid rgba(255,255,255,.15);
+      box-shadow: 0 25px 65px rgba(0,0,0,.25);
+    }
+
+    .hero-badge {
+      position: absolute;
+      bottom: 22px;
+      left: -20px;
+      max-width: 245px;
+      background: var(--white);
+      color: var(--navy);
+      border-radius: 14px;
+      padding: 17px 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-badge strong {
+      display: block;
+      font-size: 1rem;
+    }
+
+    .hero-badge span {
+      font-size: .84rem;
+      color: var(--muted);
+    }
+
+    /* Faixa de vantagens */
+    .benefits {
+      position: relative;
+      margin-top: -1px;
+      background: var(--gold);
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .benefit {
+      padding: 22px 15px;
+      text-align: center;
+      border-right: 1px solid rgba(16,42,67,.13);
+    }
+
+    .benefit:last-child {
+      border-right: 0;
+    }
+
+    .benefit strong {
+      display: block;
+      color: var(--navy);
+      font-size: .98rem;
+    }
+
+    .benefit span {
+      font-size: .82rem;
+      color: #3d4b57;
+    }
+
+    /* Serviços */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .service-card {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--white);
+      transition: transform .25s, box-shadow .25s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .service-card img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      background: var(--blue-light);
+    }
+
+    .service-content {
+      padding: 23px;
+    }
+
+    .service-content h3 {
+      color: var(--navy);
+      font-size: 1.18rem;
+      margin-bottom: 9px;
+    }
+
+    .service-content p {
+      color: var(--muted);
+      font-size: .94rem;
+      margin-bottom: 17px;
+    }
+
+    .text-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--blue);
+      font-weight: 800;
+      font-size: .9rem;
+    }
+
+    /* Papelaria */
+    .stationery {
+      background: var(--background);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .product-card {
+      padding: 16px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      text-align: center;
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 175px;
+      object-fit: contain;
+      border-radius: 10px;
+      background: #fff;
+      margin-bottom: 15px;
+    }
+
+    .product-card h3 {
+      color: var(--navy);
+      font-size: 1rem;
+      margin-bottom: 7px;
+    }
+
+    .product-card p {
+      color: var(--muted);
+      font-size: .85rem;
+      margin-bottom: 14px;
+    }
+
+    .product-card .btn {
+      width: 100%;
+      min-height: 42px;
+      padding: 9px;
+      font-size: .86rem;
+    }
+
+    /* Secção destacada */
+    .highlight {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .highlight-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .highlight h2 {
+      color: var(--white);
+    }
+
+    .highlight p {
+      color: #d0deea;
+      margin-bottom: 22px;
+    }
+
+    .highlight img {
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+      border-radius: 22px;
+    }
+
+    .check-list {
+      display: grid;
+      gap: 12px;
+      margin: 24px 0;
+    }
+
+    .check-list li {
+      list-style: none;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      color: #e6edf4;
+    }
+
+    .check-list li span {
+      color: var(--gold);
+      font-weight: 900;
+    }
+
+    /* Como funciona */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .step {
+      padding: 27px;
+      background: var(--background);
+      border-radius: var(--radius);
+    }
+
+    .step-number {
+      display: grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      margin-bottom: 18px;
+      background: var(--gold);
+      color: var(--navy);
+      border-radius: 13px;
+      font-weight: 900;
+      font-size: 1.1rem;
+    }
+
+    .step h3 {
+      color: var(--navy);
+      margin-bottom: 9px;
+    }
+
+    .step p {
+      color: var(--muted);
+      font-size: .94rem;
+    }
+
+    /* Contacto */
+    .contact {
+      background: var(--blue-light);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .contact-info {
+      padding: 28px;
+      background: var(--navy);
+      color: var(--white);
+      border-radius: var(--radius);
+    }
+
+    .contact-info h3 {
+      font-size: 1.5rem;
+      margin-bottom: 13px;
+    }
+
+    .contact-info p {
+      color: #d6e2ed;
+      margin-bottom: 22px;
+    }
+
+    .contact-item {
+      padding: 14px 0;
+      border-top: 1px solid rgba(255,255,255,.16);
+    }
+
+    .contact-item strong {
+      display: block;
+      color: var(--gold);
+      font-size: .82rem;
+      margin-bottom: 4px;
+    }
+
+    .contact-form {
+      padding: 28px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    .contact-form h3 {
+      color: var(--navy);
+      margin-bottom: 20px;
+      font-size: 1.35rem;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: .9rem;
+      font-weight: 700;
+      margin-bottom: 7px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1px solid #d5dee7;
+      border-radius: 9px;
+      outline: none;
+      background: #fff;
+      color: var(--text);
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(23,105,170,.1);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 110px;
+    }
+
+    .contact-form .btn {
+      width: 100%;
+    }
+
+    .form-note {
+      color: var(--muted);
+      font-size: .8rem;
+      margin-top: 12px;
+      text-align: center;
+    }
+
+    /* Rodapé */
+    .footer {
+      padding: 35px 0;
+      background: #091d2d;
+      color: #d6e2ed;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-brand {
+      color: var(--white);
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-weight: 800;
+      font-size: 1.15rem;
+    }
+
+    .footer p {
+      font-size: .86rem;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-size: .9rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold);
+    }
+
+    .floating-whatsapp {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #25d366;
+      color: #063d25;
+      font-size: 1.65rem;
+      font-weight: 900;
+      box-shadow: 0 8px 25px rgba(0,0,0,.2);
+      transition: transform .2s;
+    }
+
+    .floating-whatsapp:hover {
+      transform: scale(1.08);
+    }
+
+    @media (max-width: 900px) {
+      .nav-links {
+        gap: 13px;
+        font-size: .82rem;
+      }
+
+      .hero-grid {
+        gap: 28px;
+      }
+
+      .hero-image {
+        height: 340px;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 700px) {
+      .section {
+        padding: 60px 0;
+      }
+
+      .nav {
+        min-height: 70px;
+      }
+
+      .menu-toggle {
+        display: block;
+        flex-shrink: 0;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        padding: 18px 4% 24px;
+        background: var(--white);
+        border-bottom: 1px solid var(--border);
+        box-shadow: var(--shadow);
+        align-items: stretch;
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 12px 8px;
+        font-size: .95rem;
+      }
+
+      .nav-cta {
+        text-align: center;
+        margin-top: 6px;
+      }
+
+      .brand-name {
+        font-size: 1.1rem;
+      }
+
+      .brand-tagline {
+        font-size: .66rem;
+      }
+
+      .hero-grid,
+      .highlight-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-grid {
+        padding-top: 62px;
+        padding-bottom: 65px;
+      }
+
+      .hero h1 {
+        letter-spacing: -1.2px;
+      }
+
+      .hero-image {
+        height: 280px;
+      }
+
+      .hero-badge {
+        left: 10px;
+        bottom: 10px;
+      }
+
+      .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .benefit:nth-child(2) {
+        border-right: 0;
+      }
+
+      .benefit:nth-child(-n+2) {
+        border-bottom: 1px solid rgba(16,42,67,.13);
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service-card img {
+        height: 225px;
+      }
+
+      .products-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .product-card {
+        padding: 12px;
+      }
+
+      .product-card img {
+        height: 130px;
+      }
+
+      .product-card h3 {
+        font-size: .92rem;
+      }
+
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .highlight-grid {
+        gap: 28px;
+      }
+
+      .highlight img {
+        height: 270px;
+      }
+
+      .contact-info,
+      .contact-form {
+        padding: 22px;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+    }
+  </style>
 </head>
+
 <body>
-  <div class="topline"><div class="container topline-inner"><span>📍 O seu ponto de apoio escolar e digital</span><a href="#contactos">Fale connosco <span aria-hidden="true">↗</span></a></div></div>
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <a class="brand" href="#inicio" aria-label="Zuarte - início"><img src="assets/logo-generated.png" alt="Logótipo Zuarte"><span class="brand-text"><b>ZUARTE</b><small>PAPELARIA · CENTRO DIGITAL</small></span></a>
-      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span><span></span></button>
-      <nav id="mainNav" aria-label="Navegação principal"><a href="#servicos">Serviços</a><a href="#papelaria">Papelaria</a><a href="#gaming">Gaming</a><a href="#sobre">Sobre nós</a><a class="nav-cta" href="#pedido">Pedir orçamento <span>↗</span></a></nav>
+  <header class="header">
+    <div class="container nav">
+      <a href="#inicio" class="brand" aria-label="Zuarte - página inicial">
+        <img src="assets/logo-generated.png" alt="Logótipo Zuarte"
+             onerror="this.style.display='none'">
+        <span>
+          <span class="brand-name">ZUARTE</span>
+          <span class="brand-tagline">Papelaria · Digital · Gaming</span>
+        </span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle"
+              aria-label="Abrir menu" aria-expanded="false">☰</button>
+
+      <nav class="nav-links" id="navLinks" aria-label="Navegação principal">
+        <a href="#inicio">Início</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#papelaria">Papelaria</a>
+        <a href="#gaming">Gaming</a>
+        <a href="#contacto">Contacto</a>
+        <a class="nav-cta" href="https://wa.me/244945972745" target="_blank" rel="noopener">
+          Falar connosco
+        </a>
+      </nav>
     </div>
   </header>
 
   <main>
     <section class="hero" id="inicio">
-      <div class="hero-bg"></div><div class="container hero-grid">
-        <div class="hero-copy"><div class="eyebrow"><span class="pulse"></span> ESTUDAR, CRIAR E CONECTAR</div>
-          <h1>Tudo o que precisa.<br><em>Num só lugar.</em></h1>
-          <p>Materiais escolares, impressão de documentos, fotografia rápida, serviços digitais e diversão PlayStation. Atendimento próximo, soluções práticas.</p>
-          <div class="hero-actions"><a class="btn btn-primary" href="#pedido">Solicitar um serviço <span>↗</span></a><a class="btn btn-ghost" href="#servicos"><span class="play-icon">▶</span> Explorar serviços</a></div>
-          <div class="hero-trust"><div class="trust-icon">✓</div><span><b>Prático e acessível</b><small>O seu parceiro para escola e dia a dia</small></span></div>
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Tudo o que precisa num só lugar</span>
+          <h1>O seu dia fica mais fácil com a <span>Zuarte.</span></h1>
+          <p class="hero-copy">
+            Material escolar, impressão de trabalhos, serviços digitais,
+            fotografias rápidas, jogos PlayStation e muito mais.
+            Estamos aqui para facilitar a sua vida.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary"
+               href="https://wa.me/244945972745?text=Ol%C3%A1%20Zuarte%21%20Gostaria%20de%20conhecer%20os%20vossos%20servi%C3%A7os."
+               target="_blank" rel="noopener">
+              Consultar serviços →
+            </a>
+            <a class="btn btn-outline" href="#servicos">Explorar serviços</a>
+          </div>
         </div>
-        <div class="hero-visual"><div class="hero-photo"></div><div class="floating-card card-print"><span class="mini-icon blue">▤</span><span><b>Impressão & cópias</b><small>Documentos prontos</small></span></div><div class="floating-card card-game"><span class="mini-icon green">⌁</span><span><b>Zona PlayStation</b><small>Um momento de diversão</small></span></div><div class="hero-sticker"><b>ESCOLA</b><span>+</span><b>DIGITAL</b></div></div>
-      </div><div class="hero-bottom container"><span>UM ESPAÇO, MUITAS SOLUÇÕES</span><div class="scroll-line"></div><span>DESLIZE PARA DESCOBRIR ↓</span></div>
+
+        <div class="hero-image-wrap">
+          <img class="hero-image"
+               src="https://images.unsplash.com/photo-1453738773917-9c3eff1db985?auto=format&fit=crop&w=1000&q=80"
+               alt="Espaço de trabalho com computador e material de escritório"
+               fetchpriority="high">
+          <div class="hero-badge">
+            <strong>Praticidade para todos os dias</strong>
+            <span>Estudo, tecnologia e serviços num só espaço.</span>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section class="quick-services" id="servicos"><div class="container"><div class="section-heading"><div><span class="eyebrow">O QUE FAZEMOS</span><h2>Pequenas necessidades.<br><em>Grandes soluções.</em></h2></div><p>Seja para a escola, para o trabalho ou para o seu tempo livre, estamos aqui para facilitar o seu dia.</p></div>
-      <div class="service-grid">
-        <article class="service-card"><div class="service-image img-stationery"></div><div class="service-body"><span class="service-number">01 / PAPELARIA</span><h3>Material escolar</h3><p>Cadernos, esferográficas, lápis, réguas e outros artigos essenciais para estudar.</p><a href="#pedido" data-service="Material escolar">Consultar disponibilidade <span>↗</span></a></div></article>
-        <article class="service-card"><div class="service-image img-print"></div><div class="service-body"><span class="service-number">02 / CENTRO DIGITAL</span><h3>Impressão e documentos</h3><p>Impressão, cópias, digitalização, organização de documentos e trabalhos escolares.</p><a href="#pedido" data-service="Impressão e documentos">Pedir serviço <span>↗</span></a></div></article>
-        <article class="service-card"><div class="service-image img-photo"></div><div class="service-body"><span class="service-number">03 / FOTOGRAFIA</span><h3>Foto rápida</h3><p>Fotografias para documentos e outros formatos, conforme os requisitos solicitados.</p><a href="#pedido" data-service="Fotografia rápida">Consultar formatos <span>↗</span></a></div></article>
-        <article class="service-card"><div class="service-image img-cyber"></div><div class="service-body"><span class="service-number">04 / INTERNET</span><h3>Cybercafé</h3><p>Apoio para pesquisas, formulários, candidaturas e tarefas online.</p><a href="#pedido" data-service="Cybercafé e apoio online">Saber mais <span>↗</span></a></div></article>
+    <section class="benefits" aria-label="Vantagens">
+      <div class="container benefits-grid">
+        <div class="benefit">
+          <strong>Material escolar</strong>
+          <span>Para estudar melhor</span>
+        </div>
+        <div class="benefit">
+          <strong>Serviços digitais</strong>
+          <span>Mais praticidade</span>
+        </div>
+        <div class="benefit">
+          <strong>Gaming</strong>
+          <span>Diversão com amigos</span>
+        </div>
+        <div class="benefit">
+          <strong>Atendimento próximo</strong>
+          <span>Conte connosco</span>
+        </div>
       </div>
-    </div></section>
+    </section>
 
-    <section class="split-section" id="papelaria"><div class="container split-grid"><div class="split-image stationery-large"><div class="image-label"><span>✳</span><div><b>Preparado para aprender?</b><small>Comece com o material certo.</small></div></div></div><div class="split-copy"><span class="eyebrow">PARA ALUNOS E FAMÍLIAS</span><h2>O essencial para<br><em>ir mais longe.</em></h2><p>Encontre materiais para o regresso às aulas, para os trabalhos e para a rotina escolar. Consulte-nos sobre os artigos disponíveis e prepare a sua lista com facilidade.</p><ul class="check-list"><li><span>✓</span> Material escolar e de escritório</li><li><span>✓</span> Impressão de trabalhos e apontamentos</li><li><span>✓</span> Apoio na preparação de documentos</li><li><span>✓</span> Atendimento a estudantes e profissionais</li></ul><a class="btn btn-dark" href="#pedido" data-service="Material escolar e impressão">Consultar por WhatsApp <span>↗</span></a></div></div></section>
+    <section class="section" id="servicos">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">O que fazemos</span>
+          <h2>Serviços para as suas necessidades</h2>
+          <p>Do material escolar aos documentos digitais, encontre soluções práticas num só lugar.</p>
+        </div>
 
-    <section class="digital-band"><div class="container digital-grid"><div><span class="eyebrow light">PRODUTIVIDADE SEM COMPLICAÇÃO</span><h2>Do ficheiro ao papel.<br><em>Tratamos do processo.</em></h2><p>Envie a sua necessidade e combinamos consigo os detalhes, o formato e o prazo antes de avançar.</p><a class="btn btn-light" href="#pedido" data-service="Serviços digitais">Pedir informação <span>↗</span></a></div><div class="digital-features"><div class="digital-feature"><span>01</span><div><b>Impressão e cópias</b><small>Trabalhos, formulários e documentos</small></div><i>↗</i></div><div class="digital-feature"><span>02</span><div><b>Digitalização</b><small>Conversão e organização de documentos</small></div><i>↗</i></div><div class="digital-feature"><span>03</span><div><b>Panfletos e materiais gráficos</b><small>Peças simples para divulgar o seu negócio</small></div><i>↗</i></div><div class="digital-feature"><span>04</span><div><b>Trabalhos escolares</b><small>Formatação e impressão de trabalhos</small></div><i>↗</i></div></div></div></section>
+        <div class="services-grid">
+          <article class="service-card">
+            <img src="https://images.unsplash.com/photo-1456735190827-d1262f71b8a3?auto=format&fit=crop&w=800&q=80"
+                 alt="Cadernos e material escolar" loading="lazy">
+            <div class="service-content">
+              <h3>Papelaria e material escolar</h3>
+              <p>Cadernos, livros, lápis, esferográficas, borrachas, afias, lapiseiras e outros artigos escolares.</p>
+              <a class="text-link" href="https://wa.me/244945972745?text=Ol%C3%A1%20Zuarte%21%20Quero%20consultar%20o%20material%20escolar%20dispon%C3%ADvel."
+                 target="_blank" rel="noopener">Consultar disponibilidade →</a>
+            </div>
+          </article>
 
-    <section class="gaming-section" id="gaming"><div class="container gaming-grid"><div class="gaming-copy"><span class="eyebrow">PAUSA MERECIDA</span><h2>Carrega no play.<br><em>A diversão começa aqui.</em></h2><p>Reúne os amigos e aproveita a nossa zona de jogos. Temos uma área dedicada a PlayStation 2 e PlayStation, com disponibilidade e condições a confirmar no local.</p><div class="gaming-tags"><span>PLAYSTATION</span><span>PS2</span><span>AMIGOS · JOGOS · DIVERSÃO</span></div><a class="btn btn-primary" href="#pedido" data-service="Zona de jogos PlayStation">Consultar horários e condições <span>↗</span></a></div><div class="gaming-art"><div class="gaming-photo"></div><div class="game-badge"><span>GAME</span><b>ON</b><small>PLAY · RELAX · REPEAT</small></div><div class="pixel pixel-one"></div><div class="pixel pixel-two"></div><div class="pixel pixel-three"></div></div></div></section>
+          <article class="service-card">
+            <img src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?auto=format&fit=crop&w=800&q=80"
+                 alt="Impressora para impressão de documentos" loading="lazy">
+            <div class="service-content">
+              <h3>Impressão e cópias</h3>
+              <p>Impressão de trabalhos escolares, documentos, cópias e outros materiais conforme a necessidade.</p>
+              <a class="text-link" href="https://wa.me/244945972745?text=Ol%C3%A1%20Zuarte%21%20Preciso%20de%20um%20servi%C3%A7o%20de%20impress%C3%A3o."
+                 target="_blank" rel="noopener">Pedir impressão →</a>
+            </div>
+          </article>
 
-    <section class="process-section" id="sobre"><div class="container"><div class="section-heading centered"><div><span class="eyebrow">SIMPLES DO INÍCIO AO FIM</span><h2>Como funciona?</h2></div><p>Queremos que consiga resolver o que precisa sem complicações.</p></div><div class="process-grid"><div class="process-step"><span>01</span><div class="process-icon">☏</div><h3>Fale connosco</h3><p>Explique o que procura ou envie os detalhes do serviço.</p></div><div class="process-step"><span>02</span><div class="process-icon">↔</div><h3>Confirmamos</h3><p>Verificamos disponibilidade, preço e prazo consigo.</p></div><div class="process-step"><span>03</span><div class="process-icon">✓</div><h3>Está tratado</h3><p>Avançamos depois da confirmação dos detalhes.</p></div></div></div></section>
+          <article class="service-card">
+            <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80"
+                 alt="Pessoa a preparar um documento" loading="lazy">
+            <div class="service-content">
+              <h3>Serviços digitais</h3>
+              <p>Digitação, organização de documentos, currículos, panfletos e apoio na preparação de trabalhos.</p>
+              <a class="text-link" href="https://wa.me/244945972745?text=Ol%C3%A1%20Zuarte%21%20Gostaria%20de%20solicitar%20um%20servi%C3%A7o%20digital."
+                 target="_blank" rel="noopener">Solicitar serviço →</a>
+            </div>
+          </article>
 
-    <section class="request-section" id="pedido"><div class="container request-grid"><div class="request-copy"><span class="eyebrow light">VAMOS RESOLVER ISSO?</span><h2>Conte-nos<br><em>o que precisa.</em></h2><p>Preencha os campos e prepare uma mensagem para enviar pelo WhatsApp. Confirmaremos os detalhes antes de iniciar o serviço.</p><div class="contact-note"><span class="whatsapp-mark">◉</span><div><b>Atendimento direto</b><small>A mensagem abre no WhatsApp do estabelecimento.</small></div></div></div><form class="request-form" id="requestForm"><label for="clientName">O seu nome</label><input id="clientName" name="name" autocomplete="name" placeholder="Como se chama?" required><label for="serviceSelect">Que serviço procura?</label><select id="serviceSelect" name="service" required><option value="">Selecione um serviço</option><option>Material escolar</option><option>Impressão e cópias</option><option>Digitalização de documentos</option><option>Fotografia rápida</option><option>Panfletos e design</option><option>Trabalhos escolares</option><option>Cybercafé e apoio online</option><option>Zona de jogos PlayStation</option><option>Outro serviço</option></select><label for="details">Detalhes do pedido</label><textarea id="details" name="details" rows="3" placeholder="Ex.: 20 páginas a preto e branco, frente e verso..."></textarea><button class="btn btn-primary form-submit" type="submit">Preparar mensagem no WhatsApp <span>↗</span></button><small class="form-hint">O pedido não é enviado automaticamente: poderá rever a mensagem antes de enviar.</small></form></div></section>
+          <article class="service-card">
+            <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80"
+                 alt="Câmara fotográfica" loading="lazy">
+            <div class="service-content">
+              <h3>Fotografias rápidas</h3>
+              <p>Consulte a disponibilidade para fotografias rápidas e serviços relacionados com imagens.</p>
+              <a class="text-link" href="https://wa.me/244945972745?text=Ol%C3%A1%20Zuarte%21%20Gostaria%20de%20saber%20mais%20sobre%20as%20fotografias%20r%C3%A1pidas."
+                 target="_blank" rel="noopener">Consultar serviço →</a>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <img src="https://images.unsplash.com/photo-1586953208448-b95a79798f07?auto=format&fit=crop&w=800&q=80"
+                 alt="Materiais para design e impressão" loading="lazy">
+            <div class="service-content">
+              <h3>Panfletos e trabalhos gráficos</h3>
+              <p>Materiais visuais para divulgação, pequenos negócios, atividades escolares e eventos.</p>
+              <a class="text-link" href="https://wa.me/244945972745?text=Ol%C3%A1%20Zuarte%21%20Tenho%20interesse%20em%20panfletos%20ou%20trabalhos%20gr%C3%A1ficos."
+                 target="_blank" rel="noopener">Pedir informações →</a>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80"
+                 alt="Consola e jogos eletrónicos" loading="lazy">
+            <div class="service-content">
+              <h3>PlayStation e entretenimento</h3>
+              <p>Um espaço para jogar PlayStation 2 e outras opções disponíveis no estabelecimento.</p>
+              <a class="text-link" href="#gaming">Conhecer o espaço →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section stationery" id="papelaria">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Para estudar e trabalhar</span>
+          <h2>Material escolar e de escritório</h2>
+          <p>Consulte os artigos disponíveis e peça informações sobre preços pelo WhatsApp.</p>
+        </div>
+
+        <div class="products-grid">
+          <article class="product-card">
+            <img src="https://images.unsplash.com/photo-1531346878377-a5be20888e57?auto=format&fit=crop&w=500&q=80"
+                 alt="Cadernos escolares" loading="lazy">
+            <h3>Cadernos e blocos</h3>
+            <p>Para apontamentos e exercícios.</p>
+            <a class="btn btn-primary" href="https://wa.me/244945972745?text=Ol%C3%A1%21%20T%C3%AAm%20cadernos%20ou%20blocos%20dispon%C3%ADveis%3F"
+               target="_blank" rel="noopener">Consultar</a>
+          </article>
+
+          <article class="product-card">
+            <img src="https://images.unsplash.com/photo-1509695507497-903c140c43b0?auto=format&fit=crop&w=500&q=80"
+                 alt="Lápis e instrumentos de escrita" loading="lazy">
+            <h3>Lápis e lapiseiras</h3>
+            <p>Instrumentos de escrita.</p>
+            <a class="btn btn-primary" href="https://wa.me/244945972745?text=Ol%C3%A1%21%20T%C3%AAm%20l%C3%A1pis%20ou%20lapiseiras%20dispon%C3%ADveis%3F"
+               target="_blank" rel="noopener">Consultar</a>
+          </article>
+
+          <article class="product-card">
+            <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=500&q=80"
+                 alt="Canetas e material de escrita" loading="lazy">
+            <h3>Canetas e esferográficas</h3>
+            <p>Para escola e escritório.</p>
+            <a class="btn btn-primary" href="https://wa.me/244945972745?text=Ol%C3%A1%21%20T%C3%AAm%20canetas%20e%20esferogr%C3%A1ficas%20dispon%C3%ADveis%3F"
+               target="_blank" rel="noopener">Consultar</a>
+          </article>
+
+          <article class="product-card">
+            <img src="https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=500&q=80"
+                 alt="Material de escritório" loading="lazy">
+            <h3>Borrachas e afias</h3>
+            <p>Pequenos artigos essenciais.</p>
+            <a class="btn btn-primary" href="https://wa.me/244945972745?text=Ol%C3%A1%21%20T%C3%AAm%20borrachas%20e%20afias%20dispon%C3%ADveis%3F"
+               target="_blank" rel="noopener">Consultar</a>
+          </article>
+        </div>
+
+        <p style="text-align:center;color:#687987;margin-top:25px;font-size:.88rem">
+          As imagens são ilustrativas. A disponibilidade e os preços devem ser confirmados pelo WhatsApp.
+        </p>
+      </div>
+    </section>
+
+    <section class="section highlight" id="gaming">
+      <div class="container highlight-grid">
+        <div>
+          <span class="eyebrow">Tecnologia e diversão</span>
+          <h2>Estude, resolva os seus documentos e aproveite para jogar.</h2>
+          <p>
+            A Zuarte reúne serviços digitais e entretenimento num único espaço,
+            para que possa tratar das suas tarefas e aproveitar os seus momentos livres.
+          </p>
+
+          <ul class="check-list">
+            <li><span>✓</span> Espaço de jogos PlayStation, incluindo PS2.</li>
+            <li><span>✓</span> Apoio na preparação e impressão de trabalhos.</li>
+            <li><span>✓</span> Serviços de computador e cybercafé, conforme disponibilidade.</li>
+            <li><span>✓</span> Informações e pedidos através do WhatsApp.</li>
+          </ul>
+
+          <a class="btn btn-primary"
+             href="https://wa.me/244945972745?text=Ol%C3%A1%20Zuarte%21%20Gostaria%20de%20saber%20mais%20sobre%20o%20espa%C3%A7o%20de%20gaming%20e%20cybercaf%C3%A9."
+             target="_blank" rel="noopener">Consultar disponibilidade</a>
+        </div>
+
+        <img src="https://images.unsplash.com/photo-1592840496694-26d035b52b48?auto=format&fit=crop&w=1000&q=80"
+             alt="Espaço de entretenimento com videojogos" loading="lazy">
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">É simples</span>
+          <h2>Como solicitar um serviço</h2>
+          <p>Entre em contacto e explique-nos o que precisa.</p>
+        </div>
+
+        <div class="steps-grid">
+          <article class="step">
+            <div class="step-number">01</div>
+            <h3>Escolha o serviço</h3>
+            <p>Identifique o material, documento ou serviço digital de que precisa.</p>
+          </article>
+
+          <article class="step">
+            <div class="step-number">02</div>
+            <h3>Fale connosco</h3>
+            <p>Envie uma mensagem pelo WhatsApp para consultar preços, disponibilidade e condições.</p>
+          </article>
+
+          <article class="step">
+            <div class="step-number">03</div>
+            <h3>Combine os detalhes</h3>
+            <p>Confirme o pedido, o prazo e a forma de levantamento ou entrega, quando disponível.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contacto">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">Estamos disponíveis</span>
+          <h2>Como podemos ajudar?</h2>
+          <p>Envie o seu pedido. A conversa será aberta diretamente no WhatsApp.</p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h3>Fale com a Zuarte</h3>
+            <p>Consulte serviços, peça informações ou confirme a disponibilidade de um artigo.</p>
+
+            <div class="contact-item">
+              <strong>WHATSAPP</strong>
+              <a href="https://wa.me/244945972745" target="_blank" rel="noopener">
+                +244 945 972 745
+              </a>
+            </div>
+
+            <div class="contact-item">
+              <strong>SERVIÇOS</strong>
+              <span>Papelaria, impressão, digital, fotografias e gaming.</span>
+            </div>
+
+            <div class="contact-item">
+              <strong>LOCALIZAÇÃO</strong>
+              <span>Contacte-nos para confirmar a morada do estabelecimento.</span>
+            </div>
+
+            <a class="btn btn-whatsapp"
+               href="https://wa.me/244945972745?text=Ol%C3%A1%20Zuarte%21%20Entrei%20no%20vosso%20website%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es."
+               target="_blank" rel="noopener">Abrir WhatsApp</a>
+          </div>
+
+          <form class="contact-form" id="contactForm">
+            <h3>Enviar pedido</h3>
+
+            <div class="form-group">
+              <label for="nome">O seu nome</label>
+              <input type="text" id="nome" name="nome"
+                     placeholder="Como se chama?" required>
+            </div>
+
+            <div class="form-group">
+              <label for="servico">Serviço pretendido</label>
+              <select id="servico" name="servico" required>
+                <option value="">Selecione um serviço</option>
+                <option>Material escolar</option>
+                <option>Impressão e cópias</option>
+                <option>Digitação de documentos</option>
+                <option>Currículos e panfletos</option>
+                <option>Fotografias rápidas</option>
+                <option>Cybercafé</option>
+                <option>PlayStation e gaming</option>
+                <option>Entrega de trabalhos</option>
+                <option>Outro serviço</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="mensagem">Detalhes do pedido</label>
+              <textarea id="mensagem" name="mensagem"
+                        placeholder="Explique brevemente o que precisa..." required></textarea>
+            </div>
+
+            <button class="btn btn-whatsapp" type="submit">
+              Enviar pelo WhatsApp →
+            </button>
+
+            <p class="form-note">
+              O formulário não guarda os seus dados. A mensagem será preparada no WhatsApp.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer id="contactos"><div class="container footer-main"><a class="brand footer-brand" href="#inicio"><img src="assets/logo-generated.png" alt=""><span class="brand-text"><b>ZUARTE</b><small>PAPELARIA · CENTRO DIGITAL</small></span></a><p>O seu parceiro para aprender, criar, imprimir e conectar.</p><div class="footer-links"><a href="#servicos">Serviços</a><a href="#papelaria">Papelaria</a><a href="#gaming">Gaming</a><a href="#pedido">Contactos</a></div></div><div class="container footer-bottom"><span>© <span id="year"></span> Zuarte. Todos os direitos reservados.</span><span>Feito para aproximar pessoas e soluções.</span></div></footer>
-  <a class="floating-whatsapp" href="#pedido" aria-label="Pedir serviço pelo WhatsApp">☏</a>
-  <script src="config.js"></script><script src="script.js"></script>
+  <footer class="footer">
+    <div class="container footer-content">
+      <div>
+        <div class="footer-brand">ZUARTE</div>
+        <p>Papelaria, serviços digitais e entretenimento.</p>
+      </div>
+
+      <div class="footer-links">
+        <a href="#inicio">Início</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#papelaria">Papelaria</a>
+        <a href="#contacto">Contacto</a>
+        <a href="https://wa.me/244945972745" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+
+      <p>© <span id="year"></span> Zuarte. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <a class="floating-whatsapp"
+     href="https://wa.me/244945972745?text=Ol%C3%A1%20Zuarte%21%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es."
+     target="_blank" rel="noopener"
+     aria-label="Contactar a Zuarte pelo WhatsApp"
+     title="Falar pelo WhatsApp">✆</a>
+
+  <script>
+    // Número oficial de WhatsApp da Zuarte
+    const ZUARTE_WHATSAPP = "244945972745";
+
+    // Menu para telemóveis
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.setAttribute("aria-label", isOpen ? "Fechar menu" : "Abrir menu");
+      menuToggle.textContent = isOpen ? "×" : "☰";
+    });
+
+    document.querySelectorAll("#navLinks a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Abrir menu");
+        menuToggle.textContent = "☰";
+      });
+    });
+
+    // Formulário que prepara uma mensagem para o WhatsApp
+    document.getElementById("contactForm").addEventListener("submit", event => {
+      event.preventDefault();
+
+      const nome = document.getElementById("nome").value.trim();
+      const servico = document.getElementById("servico").value;
+      const mensagem = document.getElementById("mensagem").value.trim();
+
+      if (!nome || !servico || !mensagem) {
+        alert("Por favor, preencha todos os campos.");
+        return;
+      }
+
+      const texto =
+        "Olá, Zuarte! O meu nome é " + nome +
+        ".\nServiço pretendido: " + servico +
+        ".\nDetalhes: " + mensagem +
+        ".\nEntrei em contacto através do vosso website.";
+
+      const url = "https://wa.me/" + ZUARTE_WHATSAPP +
+                  "?text=" + encodeURIComponent(texto);
+
+      window.open(url, "_blank", "noopener,noreferrer");
+    });
+
+    // Ano automático no rodapé
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
